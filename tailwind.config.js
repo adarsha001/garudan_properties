@@ -1,10 +1,14 @@
-export default {
+// tailwind.config.js
+module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}", // <-- this includes all components
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        gold: "#E4BD64",
+      },
+    },
   },
   plugins: [],
 }

@@ -55,7 +55,8 @@ const Navbar = () => {
   // ...
 
   return (
-    <nav className="bg-gray-900 text-white fixed w-full top-0 left-0 shadow-md z-50">
+<nav className="text-[#E4BD64] fixed top-0 left-0 w-full bg-black p-4 shadow-md z-50">
+
       <div ref={navRef} className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <div ref={logoRef} className="text-xl font-bold">
           <Link to="/">garudan properties</Link>
@@ -66,7 +67,7 @@ const Navbar = () => {
             <Link 
               key={item}
               ref={el => (linksRef.current[i] = el)}
-              to={`/${item.toLowerCase()}`}
+              to={item=== 'Home'? '/':`/${item.toLowerCase()}`}
               className="hover:text-teal-400 "
             >
               {item}

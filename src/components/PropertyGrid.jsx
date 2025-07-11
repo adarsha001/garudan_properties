@@ -24,22 +24,7 @@ const PropertyGrid = ({ properties }) => {
 
       {/* Property Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {properties.map((property) => (
-          <div key={property.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-            {/* Property Image */}
-            <div className="relative">
-              <img 
-                src={property.image} 
-                alt={property.title} 
-                className="w-full h-48 sm:h-56 object-cover"
-              />
-              <div className="absolute top-3 right-3 bg-white p-2 rounded-full shadow-md">
-                <FiHeart className="text-gray-600 hover:text-red-500 cursor-pointer" />
-              </div>
-              <div className="absolute bottom-3 left-3 bg-teal-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                {property.type}
-              </div>
-            </div>
+      
 
             {/* Property Details */}
             <div className="p-5">
