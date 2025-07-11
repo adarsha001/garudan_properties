@@ -2,6 +2,11 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Animatedslider from './components/Animatedslider';
+import ImageSlider from './components/ImageSlider';
+import PropertyGrid from './components/PropertyGrid';
+import Createproperty from './components/Createproperty';
+import PropertyList from './components/PropertyList';
+import PropertyDetails from './components/PropertyDetails';
 
 const App = () => {
   const sampleProperties = [
@@ -33,14 +38,18 @@ const App = () => {
         <Navbar />
 
         {/* Hero + Properties */}
-        <Animatedslider properties={sampleProperties} />
-
+        {/* <Animatedslider properties={sampleProperties} /> */}
+<ImageSlider />
+<PropertyGrid/>
+<Createproperty/>
+<PropertyList/>
         {/* Routes (Optional pages) */}
         <Routes>
           <Route path="/" element={<div className="text-center mt-10 text-2xl font-semibold">Home Page</div>} />
           <Route path="/about" element={<div className="text-center mt-10 text-2xl font-semibold">About Page</div>} />
           <Route path="/services" element={<div className="text-center mt-10 text-2xl font-semibold">Services Page</div>} />
           <Route path="/contact" element={<div className="text-center mt-10 text-2xl font-semibold">Contact Page</div>} />
+          <Route path="/property/:id" element={<PropertyDetails />} />
         </Routes>
       </div>
     </BrowserRouter>

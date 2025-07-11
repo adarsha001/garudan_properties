@@ -1,10 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'; // Using feather icons
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-const ImageSlider = ({ slides }) => {
+const ImageSlider = () => {
+  const slides = [
+    {
+      url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+      title: 'Find Your Dream Home',
+      description: 'Browse listings of luxury apartments and family homes in top locations.',
+      buttonText: 'Explore Now',
+    },
+    {
+      url: 'https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: 'Invest Smartly',
+      description: 'Discover premium commercial and residential investment opportunities.',
+      buttonText: 'Start Investing',
+    },
+    {
+      url: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      title: 'Modern Living Spaces',
+      description: 'Experience contemporary living in our newly built smart homes.',
+      buttonText: 'View Listings',
+    },
+  ];
+  
+  
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-advance slides every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       goToNext();
@@ -30,12 +51,10 @@ const ImageSlider = ({ slides }) => {
 
   return (
     <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden group">
-      {/* Slide Image */}
       <div
         className="w-full h-full bg-cover bg-center transition-all duration-1000 ease-in-out"
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
       >
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
           <div className="text-center px-4 max-w-3xl">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -51,7 +70,6 @@ const ImageSlider = ({ slides }) => {
         </div>
       </div>
 
-      {/* Navigation Arrows */}
       <button
         onClick={goToPrevious}
         className="hidden md:block absolute left-5 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-all"
@@ -65,13 +83,14 @@ const ImageSlider = ({ slides }) => {
         <FiChevronRight size={24} />
       </button>
 
-      {/* Dots Indicator */}
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2">
-        {slides.map((slide, slideIndex) => (
+        {slides.map((_, slideIndex) => (
           <button
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
-            className={`w-3 h-3 rounded-full transition-all ${currentIndex === slideIndex ? 'bg-white w-6' : 'bg-white bg-opacity-50'}`}
+            className={`w-3 h-3 rounded-full transition-all ${
+              currentIndex === slideIndex ? 'bg-white w-6' : 'bg-white bg-opacity-50'
+            }`}
           />
         ))}
       </div>
@@ -79,5 +98,4 @@ const ImageSlider = ({ slides }) => {
   );
 };
 
-// Example usage:
-export default ImageSlider
+export default ImageSlider;
