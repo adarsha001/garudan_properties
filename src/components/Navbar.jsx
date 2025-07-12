@@ -55,7 +55,7 @@ const Navbar = () => {
   // ...
 
   return (
-<nav className="text-[#E4BD64] fixed top-0 left-0 w-full  p-4 shadow-md z-50">
+<nav className="text-[#E4BD64] fixed top-0 left-0 w-full h-16 bg-white shadow-md z-50">
 
       <div ref={navRef} className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <div ref={logoRef} className="text-xl font-bold">
@@ -63,7 +63,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex space-x-6" >
-          {['Home', 'About', 'Services', 'Contact'].map((item, i) => (
+          {['Home', 'About',  'create'].map((item, i) => (
             <Link 
               key={item}
               ref={el => (linksRef.current[i] = el)}
