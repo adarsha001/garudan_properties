@@ -12,6 +12,9 @@ import {
   FiNavigation
 } from 'react-icons/fi';
 import PropertyList from './PropertyList';
+import api from '../api';
+
+
 
 const PropertyDetails = () => {
   const { id } = useParams();
@@ -24,7 +27,7 @@ const PropertyDetails = () => {
     const fetchProperty = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:8080/api/properties/${id}`);
+        const res = await api.get(`/properties/${id}`);
         setProperty(res.data);
       } catch (err) {
         console.error('Error fetching property:', err);
