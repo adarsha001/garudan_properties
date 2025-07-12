@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Createproperty from './components/Createproperty';
 
 import PropertyDetails from './components/PropertyDetails';
-import Home from './main/Homecomponent';
+import Homecomponent from './main/Homecomponent';
 
 const App = () => {
   const sampleProperties = [
