@@ -88,6 +88,7 @@ const Navbar = () => {
           ref={mobileMenuRef}
           className="md:hidden bg-white px-4 pt-2 pb-4 shadow-md space-y-2"
         >
+          
           {['Home', 'About', 'Create'].map(item => (
             <Link
               key={item}
