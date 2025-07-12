@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import api from '../api';
 
 const CreateProperty = () => {
   const fields = ['name', 'location', 'building_age', 'price', 'beds', 'squarefeet', 'map_url'];
