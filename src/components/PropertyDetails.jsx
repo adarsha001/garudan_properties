@@ -27,7 +27,7 @@ const PropertyDetails = () => {
     const fetchProperty = async () => {
       try {
         setLoading(true);
-        const res = await api.get(`/properties/${id}`);
+        const res = await api.get(`/api/properties/${id}`);
         setProperty(res.data);
       } catch (err) {
         console.error('Error fetching property:', err);

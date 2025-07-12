@@ -19,7 +19,7 @@ const PropertyList = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const res = await api.get(`/properties/`);
+        const res = await api.get(`/api/properties/`);
         setProperties(res.data);
         setFiltered(res.data);
       } catch (err) {
