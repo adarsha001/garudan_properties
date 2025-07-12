@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
+import { Menu, X } from 'lucide-react'; // Hamburger icons
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,22 +9,9 @@ const Navbar = () => {
   const logoRef = useRef(null);
   const linksRef = useRef([]);
   const mobileMenuRef = useRef(null);
-  const animationRef = useRef(null); // Store GSAP animations
+  const animationRef = useRef(null);
 
-  // 1. Reset initial state before animations
-  useEffect(() => {
-    // Set initial styles before animating
-    // gsap.set(navRef.current, { y: -700, opacity: 0 });
-    // gsap.set(logoRef.current, { x: -20, opacity: 0 });
-    // gsap.set(linksRef.current, { y: 10, opacity: 0 });
-    
-    return () => {
-      // Kill animations on unmount
-      if (animationRef.current) animationRef.current.kill();
-    };
-  }, []);
-
-  // 2. Run animations after initial render
+  // Desktop nav animation
   useEffect(() => {
     animationRef.current = gsap.timeline()
       .to(navRef.current, {
@@ -39,45 +27,79 @@ const Navbar = () => {
       )
       .fromTo(linksRef.current,
         { y: 10, opacity: 0 },
-        { 
+        {
           y: 0,
           opacity: 1,
           duration: 0.5,
-          stagger: 0.15,
-          // repeat: -1,  // Infinite repeats
-          // yoyo: true 
+          stagger: 0.15
         },
         "-=0.3"
       );
+    return () => animationRef.current?.kill();
   }, []);
 
-  // Mobile menu animations (same as before)
-  // ...
+  // Mobile menu animation
+  useEffect(() => {
+    if (isOpen) {
+      gsap.fromTo(mobileMenuRef.current,
+        { y: -20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.3,
+          ease: "power2.out"
+        }
+      );
+    }
+  }, [isOpen]);
 
   return (
-<nav className="text-[#E4BD64] fixed top-0 left-0 w-full h-16 bg-white shadow-md z-50">
-
+    <nav className="text-[#E4BD64] fixed top-0 left-0 w-full h-16 bg-white shadow-md z-50">
       <div ref={navRef} className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <div ref={logoRef} className="text-xl font-bold">
           <Link to="/">Garudan properties</Link>
         </div>
 
-        <div className="hidden md:flex space-x-6" >
-          {['Home', 'About',  'create'].map((item, i) => (
-            <Link 
+        {/* Desktop Links */}
+        <div className="hidden md:flex space-x-6">
+          {['Home', 'About', 'Create'].map((item, i) => (
+            <Link
               key={item}
               ref={el => (linksRef.current[i] = el)}
-              to={item=== 'Home'? '/':`/${item.toLowerCase()}`}
-              className="hover:text-teal-400 "
+              to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+              className="hover:text-teal-400"
             >
               {item}
             </Link>
           ))}
         </div>
 
-        {/* Mobile menu button and content */}
-        
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu Panel */}
+      {isOpen && (
+        <div
+          ref={mobileMenuRef}
+          className="md:hidden bg-white px-4 pt-2 pb-4 shadow-md space-y-2"
+        >
+          {['Home', 'About', 'Create'].map(item => (
+            <Link
+              key={item}
+              to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+              className="block text-gray-700 hover:text-teal-500"
+              onClick={() => setIsOpen(false)}
+            >
+              {item}
+            </Link>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };
