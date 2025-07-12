@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 
 import Createproperty from './components/Createproperty';
-import PropertyList from './components/PropertyList';
+
 import PropertyDetails from './components/PropertyDetails';
-import Home from './main/home';
+import Home from './main/Homecomponent';
 
 const App = () => {
   const sampleProperties = [
@@ -42,7 +42,7 @@ const App = () => {
 
         <Routes>
  
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Homecomponent/>} />
           <Route path="/about" element={<div className="text-center pt-20 mt-10 text-2xl font-semibold">About Page</div>} />
           <Route path="/services" element={<div className="text-center mt-10 text-2xl font-semibold">Services Page</div>} />
           

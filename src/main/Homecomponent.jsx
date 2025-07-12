@@ -2,7 +2,7 @@ import React from 'react'
 import ImageSlider from '../components/ImageSlider'
 import PropertyList from '../components/PropertyList'
 
-const Home = () => {
+const Homecomponent = () => {
   return (
     <div className=''>
       <ImageSlider/>
@@ -11,4 +11,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Homecomponent
