@@ -54,9 +54,9 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav className="text-[#E4BD64] fixed top-0 left-0 w-full h-16 bg-white shadow-md z-50">
-      <div ref={navRef} className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        <div ref={logoRef} className="text-xl font-bold">
+    <nav className="text-[#E4BD64] fixed top-0 left-0 w-full h-20 bg-white shadow-md z-40">
+      <div ref={navRef} className="max-w-7xl mx-auto px-4 md:py-12 py-12 flex justify-between items-center">
+        <div ref={logoRef} className="text-sm md:text-sm font-bold">
           <Link to="/">Garudan properties</Link>
         </div>
 

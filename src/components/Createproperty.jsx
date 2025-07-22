@@ -3,19 +3,20 @@ import React, { useState } from 'react';
 import api from '../api';
 
 const CreateProperty = () => {
-  const fields = ['name', 'location', 'building_age', 'price', 'beds', 'squarefeet', 'map_url'];
+const fields = ['name', 'location', 'building_age', 'price', 'beds', 'bedroom', 'squarefeet', 'map_url', 'description'];
 
-  const [property, setProperty] = useState({
-    name: '',
-    location: '',
-    building_age: '',
-    price: '',
-    beds: '',
-    squarefeet: '',
-    map_url: '',
-    images: [], // for multiple images
-  });
-
+const [property, setProperty] = useState({
+  name: '',
+  location: '',
+  building_age: '',
+  price: '',
+  beds: '',
+  bedroom: '',
+  squarefeet: '',
+  map_url: '',
+  description: '',
+  images: [],
+});
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
 

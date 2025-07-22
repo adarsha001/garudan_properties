@@ -102,9 +102,7 @@ const PropertyList = () => {
               <div className="absolute top-3 right-3 bg-white p-2 rounded-full shadow-md">
                 <FiHeart className="text-gray-600 hover:text-red-500 cursor-pointer" />
               </div>
-              <div className="absolute bottom-3 left-3 bg-teal-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                ₹{property.price.toLocaleString()}
-              </div>
+           
             </div>
 
             <div className="p-5">

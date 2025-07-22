@@ -17,7 +17,7 @@ const categories = [
   },
   {
     title: 'Apartments',
-    image: '/assets/real-estate-bangalore-1.jpg',
+    image: '/assets/WhatsApp Image 2025-07-22 at 8.30.57 PM.jpeg',
   },
 ];
 

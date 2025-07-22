@@ -13,6 +13,7 @@ import {
 } from 'react-icons/fi';
 import PropertyList from './PropertyList';
 import api from '../api';
+import UserPromptModal from '../main/UserPromptModal';
 
 
 
@@ -89,9 +90,7 @@ const PropertyDetails = () => {
       {/* Title and Price */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900">{property.name}</h1>
-        <div className="bg-teal-100 text-teal-800 px-4 py-2 rounded-lg text-xl font-semibold">
-          ₹{property.price.toLocaleString()}
-        </div>
+     
       </div>
 
       {/* Location and Rating */}
@@ -256,6 +255,7 @@ const PropertyDetails = () => {
           )}
         </div>
       </div>
+      <div><UserPromptModal/></div>
       <div>    <PropertyList/></div>
     </div>
   );

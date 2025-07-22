@@ -4,26 +4,31 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 const ImageSlider = () => {
   const slides = [
     {
-      url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+      url: '/assets/316.png',
       title: 'Find Your Dream Home',
       description: 'Browse listings of luxury apartments and family homes in top locations.',
       buttonText: 'Explore Now',
     },
     {
-      url: 'https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=800',
+      url: '/assets/2014612456_1_1_180904_122005-w1920-h1279.jpg',
       title: 'Invest Smartly',
       description: 'Discover premium commercial and residential investment opportunities.',
       buttonText: 'Start Investing',
     },
     {
-      url: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      url: '/assets/shops.jpg',
       title: 'Modern Living Spaces',
       description: 'Experience contemporary living in our newly built smart homes.',
       buttonText: 'View Listings',
     },
+    {
+      url: '/assets/whatsapp.jpeg',
+      title: 'Modern Apartments',
+      description: 'Live in comfort and style with our curated apartment listings.',
+      buttonText: 'Browse Apartments',
+    },
   ];
-  
-  
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -50,7 +55,7 @@ const ImageSlider = () => {
   };
 
   return (
-<div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden group pt-16">
+    <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden group pt-16">
       <div
         className="w-full h-full bg-cover bg-center transition-all duration-1000 ease-in-out"
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
