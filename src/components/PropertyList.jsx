@@ -99,10 +99,7 @@ const PropertyList = () => {
                 alt={property.name}
                 className="w-full h-48 sm:h-56 object-cover"
               />
-              <div className="absolute top-3 right-3 bg-white p-2 rounded-full shadow-md">
-                <FiHeart className="text-gray-600 hover:text-red-500 cursor-pointer" />
-              </div>
-           
+          
             </div>
 
             <div className="p-5">

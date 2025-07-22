@@ -210,6 +210,7 @@ const PlotDetail = () => {
           )}
         </div>
       </div>
+            <div><UserPromptModal/></div>
     </div>
   );
 };
