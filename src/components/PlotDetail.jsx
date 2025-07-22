@@ -10,6 +10,7 @@ import {
   FiImage,
   FiClock
 } from 'react-icons/fi';
+import UserPromptModal from '../main/UserPromptModal';
 
 const PlotDetail = () => {
   const { id } = useParams();
