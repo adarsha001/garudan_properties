@@ -226,33 +226,34 @@ const PropertyDetails = () => {
           </div>
 
           {/* Map */}
-          {property.map_url && (
-            <div className="bg-white rounded-xl shadow-md p-4 border border-gray-100">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
-                <FiNavigation className="text-teal-500 mr-2" />
-                Location
-              </h3>
-              <div className="rounded-lg overflow-hidden">
-                <iframe
-                  src={property.map_url}
-                  width="100%"
-                  height="250"
-                  className="border-0"
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
-              <a 
-                href={property.map_url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-block mt-3 text-teal-600 hover:text-teal-800 text-sm font-medium"
-              >
-                View larger map
-              </a>
-            </div>
-          )}
+         {property.map_url && (
+  <div className="bg-white rounded-xl shadow-md p-4 border border-gray-100">
+    <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+      <FiNavigation className="text-teal-500 mr-2" />
+      Street View
+    </h3>
+    <div className="rounded-lg overflow-hidden">
+      <iframe
+        src={`https://www.google.com/maps/embed?pb=!4v0!6m8!1m7!1s${property.street_view_id}!2m2!1d0!2d0!3f0!4f0!5f1.1924812503605782`}
+        width="100%"
+        height="250"
+        className="border-0"
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+    <a 
+      href={property.map_url} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="inline-block mt-3 text-teal-600 hover:text-teal-800 text-sm font-medium"
+    >
+      View in Google Maps
+    </a>
+  </div>
+)}
+
         </div>
       </div>
       <div><UserPromptModal/></div>
