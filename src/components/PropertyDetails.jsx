@@ -59,7 +59,7 @@ const PropertyDetails = () => {
   );
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 py-8">
       {/* Breadcrumb */}
       <nav className="flex mb-6" aria-label="Breadcrumb">
         <ol className="inline-flex items-center space-x-1 md:space-x-2">
@@ -110,12 +110,12 @@ const PropertyDetails = () => {
       {/* Main Image Gallery */}
       {property.images?.length > 0 && (
         <div className="mb-8">
-          <div className="relative rounded-xl overflow-hidden shadow-lg mb-4 h-64 sm:h-80 md:h-96">
-            <img
-              src={property.images[activeImage].url}
-              alt={`Property main view`}
-              className="w-full h-full object-cover transition-opacity duration-300"
-            />
+         <div className="relative mb-4 overflow-hidden rounded-xl shadow-lg">
+  <img
+    src={property.images[activeImage].url}
+    alt={`Property main view`}
+    className="w-full h-auto max-h-[80vh] object-contain mx-auto"
+  />
             {property.featured && (
               <span className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                 Featured
@@ -131,11 +131,12 @@ const PropertyDetails = () => {
                 onClick={() => setActiveImage(index)}
                 className={`rounded-lg overflow-hidden shadow-sm transition-all ${activeImage === index ? 'ring-2 ring-teal-500' : 'hover:ring-1 hover:ring-gray-300'}`}
               >
-                <img
-                  src={img.url}
-                  alt={`Property thumbnail ${index + 1}`}
-                  className="w-full h-20 object-cover"
-                />
+               <img
+  src={img.url}
+  alt={`Property thumbnail ${index + 1}`}
+  className="w-full h-24 object-contain p-1"
+  style={{ background: '#f9fafb' }}
+/>
               </button>
             ))}
           </div>
@@ -225,24 +226,24 @@ const PropertyDetails = () => {
             </button>
           </div>
 
-          {/* Map */}
-         {property.map_url && (
+   {property.map_url && (
   <div className="bg-white rounded-xl shadow-md p-4 border border-gray-100">
     <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
       <FiNavigation className="text-teal-500 mr-2" />
       Street View
     </h3>
-    <div className="rounded-lg overflow-hidden">
+
+<div className="aspect-video w-full rounded-lg overflow-hidden shadow">
       <iframe
-        src={`https://www.google.com/maps/embed?pb=!4v0!6m8!1m7!1s${property.street_view_id}!2m2!1d0!2d0!3f0!4f0!5f1.1924812503605782`}
-        width="100%"
-        height="250"
-        className="border-0"
+        src="https://www.google.com/maps/embed?pb=!3m2!1sen!2us!4v1753284198103!5m2!1sen!2us!6m8!1m7!1srPJy_rrP1JrYIjE10X13aQ!2m2!1d13.01339949014447!2d77.76115849055833!3f173.28949787758899!4f-4.2047187942121695!5f0.7820865974627469"
+        className="w-full h-full"
+        style={{ border: 0 }}
         allowFullScreen
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-      ></iframe>
+      />
     </div>
+
     <a 
       href={property.map_url} 
       target="_blank" 
@@ -256,6 +257,7 @@ const PropertyDetails = () => {
 
         </div>
       </div>
+      {/* <div>  </div> */}
       <div><UserPromptModal/></div>
       <div>    <PropertyList/></div>
     </div>
