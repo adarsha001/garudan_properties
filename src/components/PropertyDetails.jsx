@@ -235,7 +235,7 @@ const PropertyDetails = () => {
 
 <div className="aspect-video w-full rounded-lg overflow-hidden shadow">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!3m2!1sen!2us!4v1753284198103!5m2!1sen!2us!6m8!1m7!1srPJy_rrP1JrYIjE10X13aQ!2m2!1d13.01339949014447!2d77.76115849055833!3f173.28949787758899!4f-4.2047187942121695!5f0.7820865974627469"
+        src={property.map_url}
         className="w-full h-full"
         style={{ border: 0 }}
         allowFullScreen
@@ -249,7 +249,7 @@ const PropertyDetails = () => {
       target="_blank" 
       rel="noopener noreferrer"
       className="inline-block mt-3 text-teal-600 hover:text-teal-800 text-sm font-medium"
-    >
+    > 
       View in Google Maps
     </a>
   </div>
